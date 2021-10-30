@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <title>Project One</title>
+</head>
+<body>
+    <header>
+        <h1>Studio Ghibli API</h1>
+    </header>
+    <nav>
+        <button class='viewList btn'>Your List</button>
+    <form action="">
+        <input type="text" placeholder="Studio Ghibli Title">
+        <input class='btn' type="submit" value="Get Movie Info">
+        <button class='home btn'>Home</button>
+    </form>
+    </nav>
+    <main>
+        <section id='searched' class='hide'>
+            <h3 class="title"></h3>
+            <img class='image' src="" alt="">
+            <button class='add'>Add to List</button>
+            <p class="director">Director: <span class='directorName'></span></p>
+            <p class="producer">Producer: <span class='producerName'></span></p>
+            <p class='description'></p>
+            <p class='releaseDate'>Release Date: <span class='releaseDateYear'></span></p>
+            <p class='movieLength'>Running Time: <span class="movieLengthTime"></span> minutes</p>
+            <p class='rating'>Rating: <span class='ratingScore'></span>%</p>
+        </section>
+        <section id='cardArea'>
+        </section>
+    </main>
+    <!-- <footer>
+        <p>Copyright &copy; All Rights Reserved</p>
+        <p>2021 Studio Ghibli</p>
+    </footer> -->
+</body>
+</html>
+<script defer src="app.js"></script>

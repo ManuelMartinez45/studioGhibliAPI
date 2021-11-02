@@ -35,15 +35,15 @@ function handleClick(event){
         $userInput = $input.val();
         if($userInput !== ''){
           for(movie of movieList){
-             if($userInput === movie.title.toLowerCase()){
+             if($userInput.toLowerCase() === movie.title.toLowerCase()){
                 $title.text(`${movie.title}`);
-                $rating.text(`Rating: ${movie.rating}`);
-                $director.text(`Director: ${movie.director}`);
-                $producer.text(`Producer: ${movie.producer}`);
-                $movieLength.text(`Running Time: ${movie.movieLength} minutes`);
-                $releaseDate.text(`Release Date: ${movie.releaseDate}`)
-                $description.text(`Description: ${movie.description}`);
-                $image.attr('src', movie.image)
+                $rating.text(`${movie.rating}`);
+                $director.text(`${movie.director}`);
+                $producer.text(`${movie.producer}`);
+                $movieLength.text(`${movie.movieLength}`);
+                $releaseDate.text(`${movie.releaseDate}`)
+                $description.text(`${movie.description}`);
+                $image.attr('src', `${movie.image}`)
                 $('h1').text('');
                 //clears page to only show movie thats been searched
                 $cardArea.empty()
@@ -52,6 +52,7 @@ function handleClick(event){
           }
           $input.val('')
           $('#searched').removeClass('hide')
+          $home.prop('disabled', false)
         }
       }
 

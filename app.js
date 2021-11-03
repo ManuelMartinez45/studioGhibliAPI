@@ -17,6 +17,7 @@ const $cardArea = $('#cardArea');
 const $add = $('.add');
 const $home = $('.home');
 const $viewList = $('.viewList');
+const $listArea = $('#listArea')
 
 // variables
 let movieList = [];
@@ -74,7 +75,7 @@ function runAPI(){
                 movieInfo.image = movie.image;
                 movieList.push(movieInfo);
             }
-            makeCards(movieList);
+            makeCards(movieList, $cardArea);
     },
     (error) => {
         console.log('bad request: ', error)
@@ -83,9 +84,9 @@ function runAPI(){
 }
 
 // makes card display on home page
-function makeCards(list){
+function makeCards(list, area){
     for(movie of list){
-        $cardArea.append(`
+        area.append(`
         <div class="card" style="background-image: url('${movie.image}');">
         <div class="card-body" >
             <h5 class="card-title">${movie.title}</h5>
@@ -136,8 +137,9 @@ function cardClick(){
 function backHandle(evt){
     evt.preventDefault();
     $('#searched').addClass('hide')
+    $('#listArea').empty();
     $('h1').text('Studio Ghibli API')
-    makeCards(movieList);
+    makeCards(movieList, $cardArea);
     cardClick();
 }
 
@@ -145,6 +147,8 @@ function addToList(){
     //creates an object to store the pages info
     let userListMovie = {};
     //updates the object with info
+
+    
     userListMovie.title = $title.text();
     userListMovie.image = $image.attr('src');
     userListMovie.director = $director.text();
@@ -152,20 +156,34 @@ function addToList(){
     userListMovie.movieLength = $movieLength.text();
     userListMovie.releaseDate = $releaseDate.text();
     userListMovie.rating = $rating.text();
-    //pushes object into userList array
     userList.push(userListMovie)
+
+    if(userList.length > 1){
+        for(let i = 0; i <= userList.length-2; i++){
+            if(userList[i].title === userList[userList.length-1].title){
+                alert('Already In Your List')
+                userList.pop()
+            }
+        }
+    }
     console.log(userList)
-}
+           
+    }
+    
+
+
 
 //renders a page of all movies user has added to list
 function yourList(){
     if(userList.length > 0){
     $('#cardArea').empty()
-    makeCards(userList);
+    makeCards(userList, $listArea);
     $('#searched').addClass('hide')
     $('h1').text('Studio Ghibli API')
     $home.prop('disabled', false)
     }
+    $listArea.removeClass('hide')
+
 }
 
 runAPI();

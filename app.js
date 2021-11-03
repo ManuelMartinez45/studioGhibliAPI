@@ -179,7 +179,7 @@ function yourList(){
     $('#cardArea').empty()
     makeCards(userList, $listArea);
     $('#searched').addClass('hide')
-    $('h1').text('Studio Ghibli API')
+    $('h1').text('Your List')
     $home.prop('disabled', false)
     }
     $listArea.removeClass('hide')

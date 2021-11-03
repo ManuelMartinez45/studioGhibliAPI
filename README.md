@@ -15,7 +15,7 @@ A simple web app for dispaying information on each Studio Ghiblie released movie
 ![screenshot 2](#)
 
 ## Getting Started 
-[Click here](#) to see the site live
+[Click here](https://modest-ritchie-b3acfa.netlify.app/) to see the site live
 
 ## Future Enhancements
 -Allow user to create a list of movies they've seen / want to
